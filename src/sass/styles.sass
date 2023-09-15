@@ -1,0 +1,438 @@
+@import components/mixin
+@font-face 
+    font-family: 'Maven Pro'
+    src: url('../fonts/MavenPro-Medium.woff2') format('woff2'), url('../fonts/MavenPro-Medium.woff') format('woff'), url('../fonts/MavenPro-Medium.ttf') format('truetype')
+    font-weight: 500
+    font-style: normal
+    font-display: swap
+
+
+@font-face 
+    font-family: 'Maven Pro'
+    src: url('../fonts/MavenPro-Bold.woff2') format('woff2'), url('../fonts/MavenPro-Bold.woff') format('woff'), url('../fonts/MavenPro-Bold.ttf') format('truetype')
+    font-weight: bold
+    font-style: normal
+    font-display: swap
+
+
+@font-face 
+    font-family: 'Maven Pro'
+    src: url('../fonts/MavenPro-Regular.woff2') format('woff2'), url('../fonts/MavenPro-Regular.woff') format('woff'), url('../fonts/MavenPro-Regular.ttf') format('truetype')
+    font-weight: normal
+    font-style: normal
+    font-display: swap
+
+
+
+html, 
+body
+    margin: 0
+    font-size: 0.8px
+    font-family: 'Maven Pro'
+    scroll-behavior: smooth
+    +media(768)
+        font-size: 1px
+    +media(2560)
+        font-size: 1.2px
+
+a 
+    display: inline-block
+    text-decoration: none
+
+p 
+    margin: 0
+    font-size: 16rem
+
+.sprite 
+    display: none
+
+.wrapper
+    margin: 0 auto
+    padding: 0 20rem
+    max-width: 1820rem
+    +media(768)
+        padding: 0 50rem
+
+.flex-between
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.color-light
+    color: #ffffff
+    a 
+        color: #ffffff
+
+.color-dark
+    color: #9fa4af
+    a 
+        color: #6a6a77
+    h2 
+        color: #4f4f6f
+
+.btn-common
+    display: inline-block
+    padding: 14rem 30rem
+    font-size: 12rem
+    letter-spacing: 1rem
+    line-height: 2.66em
+    text-transform: uppercase
+    color: #c2c9db
+    font-weight: 700
+    text-align: center 
+    box-shadow: (0 0 10.5px rgba(204,204,223,0.5))
+    background: linear-gradient(180deg, #fff 50%, $primary 50%) 
+    background-size: 100% 200%
+    background-position: 0 0
+    border: 1px solid #d7dbe8
+    border-radius: 25px 
+    box-sizing: border-box 
+    transition: all 0.4s ease
+    &:hover
+        background-position: 0 100%
+
+.text-center 
+    text-align: center
+
+.header 
+    padding: 40rem 0
+    background: linear-gradient(-60deg, rgba(#87d3cd, .8) 0%, rgba($primary, .8) 100%), url(../img/backgroundMain.jpg) center/cover
+
+.header-wrapper
+    padding: 180rem 0
+    +wrapperStyle
+
+.stick
+    position: relative
+    display: inline-block
+    &::before,
+    &::after
+        content: ''
+        position: absolute
+        top: 50%
+        height: 1rem
+        width: 24rem
+        background-color: #fff
+    &::before
+        left: -40rem
+    &::after
+        right: -40rem
+    // один тег з двома класами
+    // в css виглядає селектор .stick.stick-dark
+    &.stick-dark
+        &::before,
+        &::after
+            background-color: $primary
+
+.logo 
+    font-size: 30rem
+    font-weight: 700
+    letter-spacing: 6px
+    a
+        display: flex
+        align-items: center
+        column-gap: 20rem 
+        img
+            height: 48rem
+            width: 48rem      
+
+.navigation
+    display: none
+    column-gap: 30rem
+    ul
+        padding-left: 0
+        list-style: none
+    li 
+        display: inline-block
+    a 
+        font-size: 16rem
+    +media (1200)
+        display: flex
+    @media screen and (max-height:360px)
+        overflow-y: scroll 
+
+
+    
+
+.burger 
+    position: relative
+    width: 30rem
+    height: 20rem
+    +media(1200)
+        display: none
+    span
+        position: absolute
+        width: 30rem
+        height: 2px
+        background-color: #fff
+        &:first-child
+            top: 0
+        &:nth-child(2)
+            top: 50%
+            transform: translateY(-50%)
+        &:last-child
+            bottom: 0
+
+.burger-open
+    span
+        transform-origin: left
+        &:first-child
+            transform: rotate(36deg)
+        &:last-child
+            transform: rotate(-36deg)
+        &:nth-child(2)
+            opacity: 0
+            
+.top-menu-open
+    position: fixed
+    padding: 20rem
+    top: 140rem
+    left: 0
+    display: flex
+    flex-direction: column
+    width: 100%
+    text-align: center
+    box-sizing: border-box
+    background: linear-gradient(transparent, $primary)
+    backdrop-filter: blur(4px)
+    z-index: 1 
+    li
+        display: block         
+
+.bott-open 
+    top: 0
+    padding-bottom: 100rem
+    background: linear-gradient($primary, transparent)
+    
+            
+.top-menu,
+.bottom-menu 
+    align-items: center
+    +menuStyle 
+    li
+        position: relative
+
+.top-menu
+    li
+        &:before
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            height: 2rem
+            width: 0
+            background-color: #fff 
+            transition: all 0.2s ease
+        &:hover:before
+            width: 100%
+
+.main-menu
+    +media(768)
+        display: block
+
+a.cta
+    padding: 15rem 22rem
+    border-radius: 25px
+    background-color: rgba(110,69,226,0)
+    border: 1rem solid #fff
+    transition: all 0.2s ease
+    +media(768)
+        display: block
+    &:hover
+        background-color: #6e45e2
+        border-color: transparent
+
+.main-wrapper
+    padding: 50rem 0
+    +wrapperStyle
+// біфор або скачати свдж
+.down-btn
+    position: relative
+    display: block
+    margin: 0 auto
+    width: 64rem
+    height: 64rem
+    border-radius: 50%
+    box-shadow: 0 0 10.5rem rgba(204,204,223,0.5)
+    background-color: #fff
+    transition: all 0.2s ease
+    svg
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        height: 16rem
+        width: 14rem
+        fill: #9fa4af
+    &:hover
+        transform: scale(1.3)
+        svg
+            animation: arrow 1s ease-in-out infinite 
+            fill: #6e45e2
+@keyframes arrow 
+    0%,
+    100% 
+        transform: translate(-50%, -50%) 
+    
+    25% 
+        transform: translate(-50%, -25%)
+    
+    75% 
+        transform: translate(-50%, -75%)
+
+main 
+    background-color: #f9fafc
+
+.wrap-wrap
+    padding: 70rem 0  
+
+.plan-wrapper
+    margin: 0 -20rem
+    padding: 50rem 20rem
+    display: flex
+    column-gap: 30rem
+    overflow: scroll
+    +media(1150)
+        justify-content: center
+        overflow: visible
+
+.plan 
+    margin: 0
+    padding: 32rem 15rem
+    min-width: 300rem
+    border-radius: 30px
+    background-color: #fff
+    color: #9fa4af
+    +media(960)
+        padding: 60rem 70rem
+    .img-container
+        height: 110rem
+        margin-bottom: 50rem
+        img
+            height: 100%
+    .personal
+        margin-bottom: 5rem
+        font-size: 14rem
+        letter-spacing: 1rem
+        line-height: 2.28em
+        text-transform: uppercase
+        font-weight: 700
+    .price 
+        position: relative
+        display: inline-block
+        color: #4f4f6f
+        margin-bottom: 30rem
+        sup
+            position: absolute
+            top: 0
+            left: -15rem
+            font-size: 16rem
+            line-height: 51rem
+            font-weight: 500
+            text-align: center
+        b
+            font-size: 60rem
+            line-height: 1.2em
+            font-weight: 500
+    .benefits
+        margin-bottom: 22rem
+        min-height: 170rem
+        p
+            font-size: 16rem
+            line-height: 1.75em
+            font-weight: 400
+    a 
+        display: inline-block
+        padding: 0.66em 2.5em
+        width: 190rem
+        font-size: 12rem
+        letter-spacing: 1rem
+        line-height: 2.66em
+        text-transform: uppercase
+        color: #c2c9db
+        font-weight: 700
+        text-align: center 
+        box-shadow: (0 0 10.5px rgba(204,204,223,0.5))
+        background-color: #ffffff 
+        border: 1px solid #d7dbe8
+        border-radius: 25px 
+        box-sizing: border-box 
+        &:hover
+            background-color: #6e45e2
+    &:hover
+        box-shadow: (0 0 46px rgba(204,204,223,0.71))
+    
+.main-second-wrapper 
+    +wrapperStyle
+    padding: 170rem 20rem
+    background: linear-gradient(-60deg, rgba(#87d3cd, .8) 0%, rgba(#6d45e1, .8) 100%), url(../img/bacgroundMap.jpg) center/cover
+.buttons 
+    align-items: center
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    column-gap: 10rem
+    row-gap: 10rem
+    a
+        display: inline-block
+        padding: 8rem 20rem
+        width: 190rem
+        border-radius: 25px
+        box-shadow: (0 0 10.5px rgba(204,204,223,0.5))
+        background-color: #fff
+        border: 1rem solid #d7dbe8
+        font-size: 12rem
+        letter-spacing: 1rem
+        line-height: 2.66em
+        text-transform: uppercase
+        color: #c2c9db
+        font-weight: 700
+        text-align: center
+        &:hover
+            background-color: #6e45e2
+.footer
+        padding-top: 40rem
+.bottom-navigation
+    margin-bottom: 30rem
+    .burger
+        span
+            background-color: #6a6a77
+    .bottom-menu 
+        .main-menu
+            a
+                &:hover
+                    color: $primary
+        a.cta
+            background-color: $primary
+            color: #fff
+            border: none
+            translate: all 0.7s ease
+            &:hover
+                transform: scale(1.2)
+hr
+    border: none
+    border-top: 1px solid #f2f2f3
+
+.copy-soc
+    padding: 15rem 0
+    +media(960)
+        display: flex
+        justify-content: space-between
+        align-items: center    
+.copyrights
+    text-align: center
+    color: #6a6a77
+.socials
+    display: flex
+    justify-content: center
+    svg
+        padding: 10rem    
+        height: 15rem
+        width: 20rem
+        fill: #6a6a77
+        transition: all 0.5s ease
+        &:hover
+            fill: $primary
+    
+            
+            

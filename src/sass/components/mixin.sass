@@ -1,0 +1,55 @@
+// @mixin wrapperStyle () 
+//     text-align: center
+//     h4 
+//         position: relative
+//         display: inline-block
+//         font-size: 14px
+//         letter-spacing: 1px
+//         line-height: 32px
+//         text-transform: uppercase
+//         font-weight: 700
+//         &::before 
+//             content: ''
+//             position: absolute
+//             border: 10px solid #000
+$primary: #6d45e1
+@mixin wrapperStyle ()
+    h4 
+        margin: 0
+        font-size: 14rem
+        letter-spacing: 1rem
+        line-height: 2.28em
+        text-transform: uppercase
+        font-weight: 700
+
+    h1 
+        margin: 0 0 10rem
+        font-size: 86rem
+        letter-spacing: -3rem
+        font-weight: 500
+
+    h2 
+        margin: 0 0 15rem
+        font-size: 60rem
+        letter-spacing: -2rem
+        line-height: 1.2em
+        font-weight: 500
+    p 
+        margin: auto
+        max-width: 380rem
+        font-size: 16rem
+        line-height: 1.75em
+        font-weight: 400
+
+=menuStyle ()
+    a 
+        display: inline-block
+        padding: 15rem 30rem
+    .cta
+        text-transform: uppercase
+        font-weight: 700
+
+=media ($size)
+    @media screen and (min-width: #{$size}px)
+        @content
+

@@ -1,0 +1,88 @@
+-
+    let mainMenu = [
+        {
+            name: "Home",
+            url: "#"
+        },
+        {
+            name: "Why MISOCIAL",
+            url: "#"
+        },
+        {
+            name: "Features",
+            url: "#"
+        },
+        {
+            name: "Articles",
+            url: "#"
+        },
+        {
+            name: "Pricing",
+            url: "#mainWrapper"
+        }
+    ]
+mixin menu (items)
+    ul.main-menu
+        for item in items
+            li 
+                a(href=item.url) #{item.name}
+//- обєкт пишемо в фігурних душках, масив в квадратних
+- 
+    let plans = {
+        first: {
+            src: "img/planFirst.png",
+            alt: "allmost free",
+            price: "0",
+            benefits: [
+                "Lorem ipsum dolor sit amet.",
+                "sed do eiusmod tempor incididunt ut.",
+                "Labore et dolore magna aliqua.",
+                "quis nostrud exercitation ullamco laboris.",
+                "Ea commodo consequat.",
+            ],
+            href: "#"
+        },
+        second: {
+            src: "img/planSecond.png",
+            alt: "middle plan",
+            price: "29",
+            benefits: [
+                "Lorem ipsum dolor sit amet.",
+                "sed do eiusmod tempor incididunt ut.",
+                "Labore et dolore magna aliqua.",
+                "quis nostrud exercitation ullamco laboris.",
+                "Ea commodo consequat.",
+            ],
+            href: "#"
+        },
+        third: {
+            src: "img/planThird.png",
+            alt: "premium plan",
+            price: "49",
+            benefits: [
+                "Lorem ipsum dolor sit amet.",
+                "sed do eiusmod tempor incididunt ut.",
+                "Labore et dolore magna aliqua.",
+                "quis nostrud exercitation ullamco laboris.",
+                "Ea commodo consequat.",
+                "sed do eiusmod temp ще підлога",
+            ],
+            href: "#"
+        },
+    }
+
+mixin card (onePlan) 
+    figure.plan 
+        figcaption 
+            .img-container
+                img(src=onePlan.src, alt=onePlan.alt)
+            p.personal personal
+            p.price 
+                sup $
+                b #{onePlan.price}
+                | /month
+            .benefits
+                for benefit in onePlan.benefits 
+                    p #{benefit}  
+            a(href=onePlan.href).btn-common select plan
+

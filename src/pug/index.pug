@@ -1,0 +1,89 @@
+doctype html
+html(lang="en")
+    head
+        include components/mixin
+        meta(charset="UTF-8")
+        //- карточки на більших екранах
+        //- змінні для кольру secondary-хедери або текст 
+        //- нижнє меню бургер, відкривати верхнє(подивитись стилі)
+        meta(name="viewport", content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0")
+        link(rel="stylesheet", href="css/styles.css")
+        title Document
+    body 
+        header.header
+            .wrapper 
+                .top-navigation.flex-between
+                    p.logo.color-light
+                        a(href="#")
+                            img(src="../img/logo.png", alt="logo")
+                            | MISOCIAL
+                    #burger.burger 
+                        span  
+                        span  
+                        span  
+                    nav#mainMenu.top-menu.navigation.color-light
+                        +menu(mainMenu)
+                        //- call to action заклик до дії
+                        a(href="#").cta get started 
+                        //- створити селектор, який буде додавати палки при його написанні в паг
+                .header-wrapper.text-center.color-light
+                    h4.stick SOCIAL MARKETING &amp; ANALYTICS
+                    h1 Pricing Table
+                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.
+                    //- для того щоб підтягнути блок звертаємось через а(кнопка) і ід 
+                a(href="#mainWrapper").down-btn 
+                    svg 
+                        use(xlink:href="#arrow")
+        main 
+            .wrapper
+                .wrap-wrap
+                    #mainWrapper.main-wrapper.text-center.color-dark
+                        h4.stick.stick-dark MIsocial
+                        h2 Select a Plan
+                        p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.
+                    .plan-wrapper.text-center 
+                        +card(plans.first)
+                        +card(plans.second)
+                        +card(plans.third)
+            .main-second-wrapper.text-center.color-light
+                h4 SOCAL MARKETING &amp; ANALYTICS
+                h2 Take control of your data
+                .buttons 
+                    a(href="#").btn-common get started
+                    a(href="#").btn-common explore features                 
+
+        footer.footer 
+            .wrapper
+                .bottom-navigation.flex-between
+                    p.logo.color-dark
+                        a(href="#")
+                            img(src="../img/logo.png", alt="logo")
+                            | MISOCIAL
+                    #burgerBott.burger
+                        span  
+                        span  
+                        span  
+                    nav#bottomMenu.bottom-menu.navigation.color-dark 
+                        +menu(mainMenu)
+                        a(href="#").cta get started 
+                hr
+                .copy-soc
+                    .copyrights 
+                        p &copy; 2017 Mass Impressions &amp; Tranmautritam. Make the right impression.
+                    .socials 
+                        a(href="#")
+                            svg 
+                                use(xlink:href="#fb")
+                        a(href="#")
+                            svg 
+                                use(xlink:href="#tw")
+                        a(href="#")
+                            svg 
+                                use(xlink:href="#google")
+                        a(href="#")
+                            svg 
+                                use(xlink:href="#inst")
+        include ../img/sprite.svg
+
+        script(src="js/scripts.js")
+         
